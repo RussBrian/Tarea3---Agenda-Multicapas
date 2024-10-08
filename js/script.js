@@ -27,7 +27,7 @@ window.onload = listOfContacts;
 const addContact = (nombre, apellido, telefono) => {
     fetch('http://www.raydelto.org/agenda.php', {
         method: 'POST',
-        headers: {
+        header: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({nombre, apellido, telefono})
@@ -53,4 +53,3 @@ btnAddContact.addEventListener('click', (event) => {
         alert('Todos los campos son obligatorios');
     }
 });
-x
