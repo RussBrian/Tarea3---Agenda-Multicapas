@@ -7,13 +7,13 @@ const listOfContacts = () => {
         .then(data => {
             const contactList = document.getElementById('contact-list');
             data.forEach(contacto => {
-                const fila = document.createElement('tr');
-                fila.innerHTML = `
+                const item = document.createElement('tr');
+                item.innerHTML = `
                     <td>${contacto.nombre}</td>
                     <td>${contacto.apellido}</td>
                     <td>${contacto.telefono}</td>
                 `;
-                contactList.appendChild(fila);
+                contactList.appendChild(item);
             });
         })
         .catch(error => console.error('Error al obtener contactos:', error));
@@ -49,6 +49,7 @@ btnAddContact.addEventListener('click', (event) => {
 
     if (nombre && apellido && telefono) {
         addContact(nombre, apellido, telefono);
+        alert('Se añadio un nuevo contacto');
     } else {
         alert('Todos los campos son obligatorios');
     }
